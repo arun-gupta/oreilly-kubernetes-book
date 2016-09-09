@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+# labels attached to this Pod
+metadata:
+  name: wildfly-pod
+  labels:
+    name: wildfly-pod
+spec:
+  containers:
+  - name: wildfly
+    # Docker image that will run in this Pod
+    image: jboss/wildfly
+    ports:
+    - containerPort: 8080
+
