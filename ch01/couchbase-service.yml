@@ -2,26 +2,30 @@ apiVersion: v1
 kind: Service
 metadata: 
   name: couchbase-service
-  labels: 
-    app: couchbase-service-pod
 spec: 
-  ports:
-    - port: 8091
-  # label keys and values of the Pod started elsewhere
   selector: 
-    app: couchbase-pod
-----
+    app: couchbase-rc-pod
+  ports:
+    - name: admin
+      port: 8091
+    - name: query
+      port: 8093
+---
 apiVersion: v1
-kind: Pod
-# labels attached to this Pod
+kind: ReplicationController
 metadata:
-  labels:
-    name: couchbase-pod
+  name: couchbase-rc
 spec:
-  containers:
-  - name: couchbase
-    # Docker image that will run in this Pod
-    image: couchbase
-    ports:
-    - containerPort: 8091
-
+  replicas: 2
+  selector:
+    app: couchbase-rc-pod
+  template:
+    metadata:
+      labels:
+        app: couchbase-rc-pod
+    spec:
+      containers:
+      - name: couchbase
+        image: couchbase
+        ports:
+        - containerPort: 8091
