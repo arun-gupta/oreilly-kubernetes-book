@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: wildfly-deployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: wildfly
+    spec:
+      containers:
+      - name: wildfly
+        image: jboss/wildfly
+        ports:
+        - containerPort: 8080
