@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: couchbase-pod
+  labels:
+    name: couchbase-pod
+spec:
+  containers:
+  - name: couchbase
+    image: arungupta/couchbase-oreilly:k8s
+    ports:
+    - containerPort: 8091
+    volumeMounts:
+    - mountPath: /var/couchbase/lib
+      name: couchbase-data
+  volumes:
+  - name: couchbase-data
+    hostPath:
+      path: /opt/data
