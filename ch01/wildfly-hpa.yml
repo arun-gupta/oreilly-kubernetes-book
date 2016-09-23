@@ -1,0 +1,11 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: wildfly-scaler
+spec:
+  scaleTargetRef:
+    kind: ReplicaSet
+    name: wildfly-rs
+  minReplicas: 3
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 50
