@@ -12,7 +12,4 @@ spec:
       containers:
       - name: bootiful-couchbase
         image: arungupta/bootiful-couchbase
-        env:
-        - name: COUCHBASE_URI
-          value: couchbase-service
       restartPolicy: Never
