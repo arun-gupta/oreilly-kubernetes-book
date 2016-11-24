@@ -1,0 +1,12 @@
+= Spring Boot + Couchbase Application
+
+This Spring Boot application stores a JSON document in Couchbase database.
+
+== Build Docker Image
+
+Build the Docker image using the command:
+
+`mvn clean package fabric8:build`
+
+This builds the Docker image `arungupta/bootiful-couchbase`.
+
