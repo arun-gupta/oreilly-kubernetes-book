@@ -1,0 +1,7 @@
+= Kubernetes Maven Plugin
+
+Package Java application and generate Kubernetes resources using the following command:
+
+```
+mvn clean package fabric8:deploy
+```
