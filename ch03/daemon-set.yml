@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: prom-exporter
+spec:
+  template:
+    metadata:
+      labels:
+        tier: monitoring
+        name: prom-exporter
+    spec:
+      containers:
+      - name: prometheus
+        image: prom/node-exporter

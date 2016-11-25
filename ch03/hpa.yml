@@ -1,0 +1,13 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: webapp-autoscaler
+spec:
+  scaleRef:
+    kind: Deployment
+    name: webapp-deployment
+    subresource: scale
+  minReplicas: 2
+  maxReplicas: 10
+  cpuUtilization:
+    targetPercentage: 80
