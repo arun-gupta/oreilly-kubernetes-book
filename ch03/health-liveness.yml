@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: couchbase
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: couchbase
+    spec:
+      containers:
+      - name: couchbase
+        image: arungupta/couchbase
+        ports:
+        - containerPort: 8091
+        livenessProbe:
+          httpGet:
+            path: /pools
+            port: 8091
+          initialDelaySeconds: 30
+          timeoutSeconds: 1
