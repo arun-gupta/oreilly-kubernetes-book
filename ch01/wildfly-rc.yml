@@ -13,6 +13,6 @@ spec:
     spec:
       containers:
       - name: wildfly
-        image: jboss/wildfly
+        image: jboss/wildfly:10.1.0.Final
         ports:
         - containerPort: 8080

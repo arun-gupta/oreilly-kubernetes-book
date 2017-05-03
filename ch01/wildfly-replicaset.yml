@@ -9,7 +9,7 @@ spec:
       app: wildfly-rs-pod
     matchExpressions:
       - {key: tier, operator: In, values: ["backend"]}
-      - {key: environment, operator: NotIn, values: ["dev"]}
+      - {key: environment, operator: NotIn, values: ["prod"]}
   template:
     metadata:
       labels:
@@ -19,6 +19,6 @@ spec:
     spec:
       containers:
       - name: wildfly
-        image: jboss/wildfly
+        image: jboss/wildfly:10.1.0.Final
         ports:
         - containerPort: 8080
