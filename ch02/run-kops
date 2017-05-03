@@ -1,0 +1,11 @@
+kops-darwin-amd64 \
+    create cluster \
+    --name=kubernetes.arungupta.me \
+    --cloud=aws \
+    --zones=us-west-2a,us-west-2b,us-west-2c \
+    --master-zones=us-west-2a,us-west-2b,us-west-2c \
+    --master-size=m4.large \
+    --node-count=3 \
+    --node-size=m4.2xlarge \
+    --state=s3://my-kops \
+    --yes
