@@ -3,11 +3,10 @@ kind: HorizontalPodAutoscaler
 metadata:
   name: webapp-autoscaler
 spec:
-  scaleRef:
+  scaleTargetRef:
+    apiVersion: extensions/v1beta1
     kind: Deployment
     name: webapp-deployment
-    subresource: scale
   minReplicas: 2
   maxReplicas: 10
-  cpuUtilization:
-    targetPercentage: 80
+  targetCPUUtilizationPercentage: 80
