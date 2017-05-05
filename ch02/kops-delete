@@ -1,5 +1,5 @@
 kops-darwin-amd64 \
     delete cluster \
     --name=kubernetes.arungupta.me \
-    --state=s3://kops-couchbase \
+    --state=s3://my-kops \
     --yes
