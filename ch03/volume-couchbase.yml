@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: couchbase-rc-pod
-        image: arungupta/couchbase
+        image: arungupta/oreilly-couchbase
         volumeMounts:
         - mountPath: "/opt/couchbase/var"
           name: mypd
